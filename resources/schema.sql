@@ -11,7 +11,7 @@ CREATE TABLE IF NOT EXISTS room (
     FOREIGN KEY (type_id) REFERENCES room_type(id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
-CREATE TABLE IF NOT EXISTS Users (
+CREATE TABLE IF NOT EXISTS users (
     id VARCHAR(255) PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
     email VARCHAR(255) NOT NULL,
@@ -24,6 +24,6 @@ CREATE TABLE IF NOT EXISTS reservation (
     checkin_date DATE NOT NULL,
     checkout_date DATE NOT NULL,
     user_id VARCHAR(255) NOT NULL,
-    FOREIGN KEY (room_number) REFERENCES Room(number),
-    FOREIGN KEY (user_id) REFERENCES Users(id)
+    FOREIGN KEY (room_number) REFERENCES room(number),
+    FOREIGN KEY (user_id) REFERENCES users(id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
